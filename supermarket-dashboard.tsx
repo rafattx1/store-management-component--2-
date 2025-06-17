@@ -308,11 +308,7 @@ export default function SupermarketDashboard() {
           const dadosAgregados = new Map<string, CampanhaLojaData>();
 
           for (const row of results.data) {
-            if (
-              !row["Nº da loja"] ||
-              !row["Total Arrecadado (RECEBIDO)"] ||
-              !row["OSC (CNPJ)"]
-            ) {
+            if (!row["Nº da loja"] || !row["Total Arrecadado (RECEBIDO)"]) {
               console.warn("Linha do CSV ignorada por falta de dados:", row);
               continue;
             }
@@ -322,7 +318,6 @@ export default function SupermarketDashboard() {
               parseFloat(
                 row["Total Arrecadado (RECEBIDO)"].replace(",", ".")
               ) || 0;
-            const oscInfo = row["OSC (CNPJ)"];
 
             if (!dadosAgregados.has(numeroLoja)) {
               dadosAgregados.set(numeroLoja, {
@@ -336,11 +331,6 @@ export default function SupermarketDashboard() {
             const lojaData = dadosAgregados.get(numeroLoja)!;
 
             lojaData.arrecadacao_mes_atual += arrecadacao;
-
-            lojaData.oscs_vinculadas++;
-            if (!oscInfo.toLowerCase().includes("desassistida")) {
-              lojaData.oscs_confirmadas++;
-            }
           }
 
           setLojas((prevLojas) =>
