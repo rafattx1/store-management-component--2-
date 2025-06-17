@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nome": "Loja A",
+    "endereco_principal": "Rua Principal, 123",
+    "telefone": "1111-1111",
+    "email": "loja.a@email.com"
+  },
+  {
+    "id": 2,
+    "nome": "Loja B",
+    "endereco_principal": "Avenida Central, 456",
+    "telefone": "2222-2222",
+    "email": "loja.b@email.com"
+  },
+  {
+    "id": 3,
+    "nome": "Loja C",
+    "endereco_principal": "Travessa da Paz, 789",
+    "telefone": "3333-3333",
+    "email": "loja.c@email.com"
+  }
+]
