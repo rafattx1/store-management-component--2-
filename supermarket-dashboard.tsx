@@ -303,7 +303,7 @@ export default function SupermarketDashboard() {
     Papa.parse<CsvRow>(file, {
       header: true,
       skipEmptyLines: true,
-      complete: (results) => {
+      complete: (results: { data: any }) => {
         try {
           const dadosAgregados = new Map<string, CampanhaLojaData>();
 
@@ -400,7 +400,7 @@ export default function SupermarketDashboard() {
           }
         }
       },
-      error: (error) => {
+      error: (error: { message: any }) => {
         console.error("Erro de parsing do CSV:", error);
         toast({
           title: "Erro de Leitura",
